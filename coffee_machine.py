@@ -1,4 +1,4 @@
-from game_data import menu, resources
+from program_data import menu, resources
 import time
 
 
@@ -60,12 +60,12 @@ def payment(coffee_type, coffe_type_cost, amount):
 
 # Cek bahan baku espresso
 def espresso_check(esp_water, esp_coffee, esp_ing_water, esp_ing_coffee, amount):
-    if esp_water < esp_ing_water or esp_coffee < esp_ing_coffee:
-        if esp_water < esp_ing_water and esp_coffee < esp_ing_coffee:
+    if esp_water < esp_ing_water * amount or esp_coffee < esp_ing_coffee * amount:
+        if esp_water < esp_ing_water * amount and esp_coffee < esp_ing_coffee * amount:
             print(f"Sorry, there is not enough water and coffee!\n")
-        elif esp_water < esp_ing_water:
+        elif esp_water < esp_ing_water * amount:
             print(f"Sorry, there is not enough water!\n")
-        elif esp_coffee < esp_ing_coffee:
+        elif esp_coffee < esp_ing_coffee * amount:
             print(f"Sorry, there is not enough coffee!\n")
     else:
         print("\n~~~~~~~~YOUR ORDER~~~~~~~~")
@@ -80,25 +80,27 @@ def latte_check(
     lat_water, lat_coffee, lat_milk, lat_ing_water, lat_ing_coffee, lat_ing_milk, amount
 ):
     if (
-        lat_water < lat_ing_water
-        or lat_coffee < lat_ing_coffee
-        or lat_milk < lat_ing_milk
+        lat_water < lat_ing_water * amount
+        or lat_coffee < lat_ing_coffee * amount
+        or lat_milk < lat_ing_milk * amount
     ):
         if (
-            lat_water < lat_ing_water
-            and lat_coffee < lat_ing_coffee
-            and lat_milk < lat_ing_milk
+            lat_water < lat_ing_water * amount
+            and lat_coffee < lat_ing_coffee * amount
+            and lat_milk < lat_ing_milk * amount
         ):
             print(f"Sorry, there is not enough water, coffee, and milk!\n")
-        elif lat_water < lat_ing_water and lat_coffee < lat_ing_coffee:
+        elif (
+            lat_water < lat_ing_water * amount and lat_coffee < lat_ing_coffee * amount
+        ):
             print(f"Sorry, there is not enough water and coffee!\n")
-        elif lat_water < lat_ing_water and lat_milk < lat_ing_milk:
+        elif lat_water < lat_ing_water * amount and lat_milk < lat_ing_milk * amount:
             print(f"Sorry, there is not enough water and milk!\n")
-        elif lat_coffee < lat_ing_coffee and lat_milk < lat_ing_milk:
+        elif lat_coffee < lat_ing_coffee * amount and lat_milk < lat_ing_milk * amount:
             print(f"Sorry, there is not enough coffee and milk!\n")
-        elif lat_water < lat_ing_water:
+        elif lat_water < lat_ing_water * amount:
             print(f"Sorry, there is not enough water!\n")
-        elif lat_coffee < lat_ing_coffee:
+        elif lat_coffee < lat_ing_coffee * amount:
             print(f"Sorry, there is not enough coffee!\n")
         else:
             print(f"Sorry, there is not enough mlik!\n")
@@ -115,25 +117,27 @@ def cappuccino_check(
     cap_water, cap_coffee, cap_milk, cap_ing_water, cap_ing_coffee, cap_ing_milk, amount
 ):
     if (
-        cap_water < cap_ing_water
-        or cap_coffee < cap_ing_coffee
-        or cap_milk < cap_ing_milk
+        cap_water < cap_ing_water * amount
+        or cap_coffee < cap_ing_coffee * amount
+        or cap_milk < cap_ing_milk * amount
     ):
         if (
-            cap_water < cap_ing_water
-            and cap_coffee < cap_ing_coffee
-            and cap_milk < cap_ing_milk
+            cap_water < cap_ing_water * amount
+            and cap_coffee < cap_ing_coffee * amount
+            and cap_milk < cap_ing_milk * amount
         ):
             print(f"Sorry, there is not enough water, coffee and milk!\n")
-        elif cap_water < cap_ing_water and cap_coffee < cap_ing_coffee:
+        elif (
+            cap_water < cap_ing_water * amount and cap_coffee < cap_ing_coffee * amount
+        ):
             print(f"Sorry, there is not enough water and coffee!\n")
-        elif cap_water < cap_ing_water and cap_milk < cap_ing_milk:
+        elif cap_water < cap_ing_water * amount and cap_milk < cap_ing_milk * amount:
             print(f"Sorry, there is not enough water and milk!\n")
-        elif cap_coffee < cap_ing_coffee and cap_milk < cap_ing_milk:
+        elif cap_coffee < cap_ing_coffee * amount and cap_milk < cap_ing_milk * amount:
             print(f"Sorry, there is not enough coffee and milk!\n")
-        elif cap_water < cap_ing_water:
+        elif cap_water < cap_ing_water * amount:
             print(f"Sorry, there is not enough water!\n")
-        elif cap_coffee < cap_ing_coffee:
+        elif cap_coffee < cap_ing_coffee * amount:
             print(f"Sorry, there is not enough coffee!\n")
         else:
             print(f"Sorry, there is not enough mlik!\n")

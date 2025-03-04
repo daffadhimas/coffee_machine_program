@@ -21,4 +21,4 @@ menu = {
     },
 }
 
-resources = {"water": 1000, "milk": 1000, "coffee": 1000, "money": 0}
+resources = {"water": 10000, "milk": 10000, "coffee": 10000, "money": 0}
